@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summoning System</title>
+    <link rel="stylesheet" href="haruki.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Summoning System</h1>
+        
+        <div class="banner-selection">
+            <h2>Select Banner</h2>
+            <button id="special-banner">Special Banner</button>
+        </div>
+        
+        <div class="summon-section">
+            <h2>Summon</h2>
+            <div class="units">
+                <div class="unit">Tokito Muichiro (Mythic)</div>
+                <div class="unit">Tomioka Giyu (Mythic)</div>
+                <div class="unit">Iguro Obanai (Mythic)</div>
+            </div>
+            
+            <div id="summon-costs">
+                <p>Cost to summon:</p>
+                <p>Summon 1x: 500 Gems</p>
+                <p>Summon 10x: 4800 Gems</p>
+            </div>
+
+            <div class="buttons">
+                <button id="summon-one">Summon 1x</button>
+                <button id="summon-ten">Summon 10x</button>
+            </div>
+            
+            <div class="luck-buttons">
+                <button id="super-lucky">Super Lucky (+25%)</button>
+                <button id="ultra-lucky">Ultra Lucky (+37.5%)</button>
+            </div>
+            
+            <div class="gem-section">
+                <h3>Your Gems: <span id="gem-count">1000</span></h3>
+                <div id="luck-display">Current Luck: 0%</div>
+                <!-- Buy gems buttons -->
+                <button id="buy-100-gems">Buy 100 Gems</button>
+                <button id="buy-500-gems">Buy 500 Gems</button>
+                <button id="buy-1000-gems">Buy 1000 Gems</button>
+                <button id="buy-5000-gems">Buy 5000 Gems</button>
+                <button id="buy-10000-gems">Buy 10000 Gems</button>
+            </div>
+        </div>
+        
+        <div id="summon-result"></div>
+        <div id="notice-banner"></div>
+        
+        <div class="result">
+            <h2>Summon Result</h2>
+            <p id="summon-result">You got: </p>
+        </div>
+        <div id="confirmation-banner" class="hidden">
+            <p>Are you sure you want to activate this luck?</p>
+            <button id="confirm-button">Confirm</button>
+            <button id="cancel-button">Cancel</button>
+        </div>
+        <div id="countdown"></div>
+    </div>
+    
+    <script src="haruki.js"></script>
+</body>
+</html>
