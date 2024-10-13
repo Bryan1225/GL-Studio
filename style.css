@@ -1,0 +1,230 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #181818;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    margin: 20px;
+}
+
+button {
+    background-color: #32CD32; /* Lime Green */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px; /* Added margin for spacing */
+}
+
+button:hover {
+    background-color: #28a745; /* Darker green */
+}
+
+.banner-button {
+    background-color: #444;
+    color: #f5f5f5;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+#luckConfirmationModal {
+    position: fixed; /* Use fixed positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Translate to perfect center */
+    z-index: 1000; /* Ensure it's above other elements */
+    display: none; /* Hidden by default */
+    background-color: rgba(30, 30, 30, 0.9); /* Dark background with slight transparency */
+    padding: 20px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+    width: 300px; /* Set a fixed width */
+    text-align: center; /* Center text inside the modal */
+    color: #ffffff; /* White text color */
+    font-family: 'Arial', sans-serif; /* Change font for modern look */
+}
+
+#summonResultModal {
+    position: fixed; /* Use fixed positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%) scale(0); /* Scale down initially */
+    z-index: 1000; /* Ensure it's above other elements */
+    display: none; /* Hidden by default */
+    background-color: rgba(30, 30, 30, 0.9); /* Dark background with slight transparency */
+    padding: 20px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+    width: 300px; /* Set a fixed width */
+    text-align: center; /* Center text inside the modal */
+    color: #ffffff; /* White text color */
+    font-family: 'Arial', sans-serif; /* Change font for modern look */
+    opacity: 0; /* Initially hidden */
+    transition: transform 0.4s ease, opacity 0.4s ease; /* Smooth transition */
+}
+
+#summonResultModal.show {
+    display: block; /* Display the modal */
+    transform: translate(-50%, -50%) scale(1); /* Scale up to normal size */
+    opacity: 1; /* Make it visible */
+}
+
+#summonResultModal p {
+    margin: 10px 0; /* Add some margin to the text */
+    font-size: 16px; /* Increase font size */
+}
+
+.modal-overlay {
+    position: fixed; /* Fixed positioning */
+    top: 0;
+    left: 0;
+    width: 100%; /* Cover full width */
+    height: 100%; /* Cover full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 999; /* Below the modal */
+    display: none; /* Hidden by default */
+}
+
+/* Glowy rainbow effect */
+@keyframes rainbowGlow {
+    0% { color: red; text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow, 0 0 40px green, 0 0 50px blue, 0 0 60px indigo, 0 0 70px violet; }
+    14% { color: orange; text-shadow: 0 0 10px orange, 0 0 20px yellow, 0 0 30px green, 0 0 40px blue, 0 0 50px indigo, 0 0 60px violet, 0 0 70px red; }
+    28% { color: yellow; text-shadow: 0 0 10px yellow, 0 0 20px green, 0 0 30px blue, 0 0 40px indigo, 0 0 50px violet, 0 0 60px red, 0 0 70px orange; }
+    42% { color: green; text-shadow: 0 0 10px green, 0 0 20px blue, 0 0 30px indigo, 0 0 40px violet, 0 0 50px red, 0 0 60px orange, 0 0 70px yellow; }
+    56% { color: blue; text-shadow: 0 0 10px blue, 0 0 20px indigo, 0 0 30px violet, 0 0 40px red, 0 0 50px orange, 0 0 60px yellow, 0 0 70px green; }
+    70% { color: indigo; text-shadow: 0 0 10px indigo, 0 0 20px violet, 0 0 30px red, 0 0 40px orange, 0 0 50px yellow, 0 0 60px green, 0 0 70px blue; }
+    84% { color: violet; text-shadow: 0 0 10px violet, 0 0 20px red, 0 0 30px orange, 0 0 40px yellow, 0 0 50px green, 0 0 60px blue, 0 0 70px indigo; }
+    100% { color: red; text-shadow: 0 0 10px red, 0 0 20px orange, 0 0 30px yellow, 0 0 40px green, 0 0 50px blue, 0 0 60px indigo, 0 0 70px violet; }
+}
+
+/* Class for rainbow animation */
+.glow {
+    font-size: 18px;
+    font-weight: bold;
+    animation: rainbowGlow 2s infinite alternate;
+}
+
+/* Notification styles */
+.notification, .summonNotification {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none; /* Start hidden */
+}
+
+.summonNotification {
+    top: 50px; /* Adjust position if needed */
+}
+
+.show {
+    display: block; /* Show when activated */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+
+.cost {
+    margin: 20px 0;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #292929;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 400px; /* Maximum width of the modal */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center;
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #f44336; /* Red */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.rewards-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between icons */
+}
+
+.rewards-icons img {
+    width: 40px; /* Set the size of the icons */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.notification {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: #444;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
+    opacity: 0; /* Start as invisible */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+}
+
+.notification.show {
+    opacity: 1; /* Fully visible */
+    transform: translateX(-50%) translateY(0); /* Slide down effect */
+}
+
+/* Optional: Add a fade-out effect */
+.notification.hide {
+    opacity: 0; /* Invisible */
+    transform: translateX(-50%) translateY(-50%); /* Slide up effect */
+}
+
+.colorButton {
+    color: #ff00ff;
+}
+
+.bigword {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.amountamount {
+    color: #28a745;
+}

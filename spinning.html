@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summoning System</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .amountamount {
+            color: #28a745;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+    <div id="notification" class="notification"></div>
+    <div id="summonNotification" class="summonNotification"></div>
+    <div class="container">
+        <h1>Summoning System</h1>
+        <h2>Select Banner</h2>
+        <button class="banner-button">Special Banner</button>
+        
+        <h2>Summon</h2>
+        <h3><span class="glow">Tokito Muichiro (Mythic)</span></h3>
+        <h3><span class="glow">Tomiioka Giyu (Mythic)</span></h3>
+        <h3><span class="glow">Iguro Obanai (Mythic)</span></h3>
+        
+        <div class="cost">
+            <p>Cost to summon:</p>
+            <p>Summon 1x: 500 Gems</p>
+            <p>Summon 10x: 4800 Gems</p>
+        </div>
+
+        <button id="summon1Button">Summon 1x</button>
+        <button id="summon10Button">Summon 10x</button>
+        
+        <div id="luckConfirmationModal" style="display:none;">
+            <div class="modal-content">
+                <span id="closeLuckConfirmation" class="close">&times;</span>
+                <p>Are you sure you want to activate this <b><span class="glow">Lucky Pass</span></b>?</p>
+                <button id="confirmLuckButton">Confirm</button>
+                <button id="cancelLuckButton">Back</button>
+            </div>
+        </div>
+        
+        <div class="luck-buttons">
+            <button id="superLuckyButton">Super Lucky (+25%)</button>
+            <button id="ultraLuckyButton">Ultra Lucky (+37.5%)</button>
+        </div>
+
+        <hr style="border: 2px solid black;">
+        <hr style="border: 2px solid black;">
+
+        <div id="gemCount" class="bigword">
+            <b>Your Gems: <span class="amountamount">1000</span></b>
+        </div>
+
+        <hr style="border: 2px solid black;">
+        <hr style="border: 2px solid black;">
+
+        <div id="luckCount">Current Luck: 0%</div>
+        <h3 id="luckTimer">Luck Timer: Not Activated</h3>
+
+        <div class="buy-buttons">
+            <button id="buy100Button">Buy 100 Gems</button>
+            <button id="buy500Button">Buy 500 Gems</button>
+            <button id="buy1000Button">Buy 1000 Gems</button>
+            <button id="buy5000Button">Buy 5000 Gems</button>
+        </div>
+
+        <div id="summonResultModal">
+            <p id="summonResultText">You summoned 1 character!</p>
+            <button id="closeSummonResult">Close</button>
+        </div>
+
+
+        <button id="codeButton">Code</button> <!-- Code button for redeeming codes -->
+
+        <div id="message"></div>
+    </div>
+
+    <div id="luckConfirmationModal" class="modal">
+        <div class="modal-overlay" id="modalOverlay"></div> <!-- Overlay -->
+        <div class="modal-content">
+            <span class="close" id="closeLuckConfirmation">&times;</span>
+            <h2>Confirm Luck Activation</h2>
+            <p>Are you sure you want to activate this Lucky Pass?</p>
+            <button id="confirmLuckButton">Confirm</button>
+            <button id="cancelLuckButton">Back</button>
+        </div>
+    </div>
+
+
+    <!-- Modal for redeeming codes -->
+    <div id="codeModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2 class="colorButton">Codes</h2>
+            <p>Redeemable codes will give astonishing rewards.</p>
+            <input type="text" id="redeemCode" placeholder="Enter code..." />
+            <button id="redeemButton">Redeem Code</button>
+            <div class="footer">
+                <p>Follow <a href="https://twitter.com/xMinaa" target="_blank">@xMinaa</a>, 
+                <a href="https://twitter.com/TakiClay" target="_blank">@TakiClay</a>, 
+                <a href="https://twitter.com/kobo_rei" target="_blank">@kobo_rei</a>, 
+                <a href="https://twitter.com/jers_e" target="_blank">@jers_e</a>, 
+                <a href="https://twitter.com/kazisito" target="_blank">@kazisito</a>, 
+                and <a href="https://twitter.com/Pyseph" target="_blank">@Pyseph</a> on Twitter for codes.</p>
+                <h3>Possible Rewards</h3>
+                <div class="rewards-icons">
+                    <img src="path/to/gems_icon.png" alt="Gems" />
+                    <img src="path/to/coins_icon.png" alt="Coins" />
+                    <img src="path/to/power_stat_icon.png" alt="Power Stat" />
+                    <img src="path/to/stat_chip_icon.png" alt="Stat Chip" />
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
